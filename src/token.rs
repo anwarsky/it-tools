@@ -1,3 +1,5 @@
+use crate::vec_utils::has;
+
 const CAPITAL_LETTERS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const LOWER_CASE_LETTERS: &str = "abcdefghijklmnopqrstuvwxyz";
 const DIGITS: &str = "0123456789";
@@ -10,19 +12,19 @@ pub fn token(args: &[String]) -> String {
         .find_map(|s| s.parse::<u32>().ok())
         .unwrap_or(DEF_LENGTH);
 
-    let has = |flag: &str| args.iter().any(|s| s == flag);
+
 
     let mut alphabet = String::new();
-    if has("-c") {
+    if has("-c", args) {
         alphabet += CAPITAL_LETTERS;
     }
-    if has("-l") {
+    if has("-l", args) {
         alphabet += LOWER_CASE_LETTERS;
     }
-    if has("-d") {
+    if has("-d", args) {
         alphabet += DIGITS;
     }
-    if has("-s") {
+    if has("-s", args) {
         alphabet += SYMBOLS;
     }
     if alphabet.is_empty() {
