@@ -1,3 +1,4 @@
+pub mod hash;
 pub mod id;
 pub mod token;
 pub mod vec_utils;
@@ -7,6 +8,10 @@ fn main() {
     match args.first().map(String::as_str) {
         Some("token") => println!("{}", token::token(&args[1..])),
         Some("id") => id::id(&args[1..]),
-        _ => eprintln!("usage: it-tools <token|id> [options]"),
+        Some("hash") => match hash::hash(&args[1..]) {
+            Ok(hash) => println!("{hash}"),
+            Err(err) => eprintln!("{err}"),
+        },
+        _ => eprintln!("usage: it-tools <token|id|hash> [options]"),
     }
 }

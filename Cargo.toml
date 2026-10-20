@@ -7,3 +7,7 @@ edition = "2024"
 tsid = "0.3.4"
 rand = "0.10.3"
 uuid = { version = "1.28.0", features = ["v1", "v3", "v4", "v5", "v6", "v7", "v8"] }
+md-5 = "0.11.0"
+sha1 = "0.11.0"
+sha2 = "0.11.1"
+ripemd = "0.2.0"
