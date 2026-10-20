@@ -12,8 +12,6 @@ pub fn token(args: &[String]) -> String {
         .find_map(|s| s.parse::<u32>().ok())
         .unwrap_or(DEF_LENGTH);
 
-
-
     let mut alphabet = String::new();
     if has("-c", args) {
         alphabet += CAPITAL_LETTERS;
