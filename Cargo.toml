@@ -6,3 +6,4 @@ edition = "2024"
 [dependencies]
 tsid = "0.3.4"
 rand = "0.10.3"
+uuid = { version = "1.28.0", features = ["v1", "v3", "v4", "v5", "v6", "v7", "v8"] }
