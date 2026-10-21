@@ -1,8 +1,17 @@
 use crate::vec_utils::has;
 
-const CAPITAL_LETTERS: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const LOWER_CASE_LETTERS: &str = "abcdefghijklmnopqrstuvwxyz";
-const DIGITS: &str = "0123456789";
+fn capital_letters() -> String {
+    ('A'..='Z').collect()
+}
+
+fn lower_case_letters() -> String {
+    ('a'..='z').collect()
+}
+
+fn digits() -> String {
+    ('0'..='9').collect()
+}
+
 const SYMBOLS: &str = "+-*/()[]{}$@#%&";
 const DEF_LENGTH: u32 = 12;
 
@@ -14,19 +23,19 @@ pub fn token(args: &[String]) -> String {
 
     let mut alphabet = String::new();
     if has("-c", args) {
-        alphabet += CAPITAL_LETTERS;
+        alphabet += &capital_letters();
     }
     if has("-l", args) {
-        alphabet += LOWER_CASE_LETTERS;
+        alphabet += &lower_case_letters();
     }
     if has("-d", args) {
-        alphabet += DIGITS;
+        alphabet += &digits();
     }
     if has("-s", args) {
         alphabet += SYMBOLS;
     }
     if alphabet.is_empty() {
-        alphabet = [CAPITAL_LETTERS, LOWER_CASE_LETTERS, DIGITS].concat();
+        alphabet = [capital_letters(), lower_case_letters(), digits()].concat();
     }
 
     let chars: Vec<char> = alphabet.chars().collect();
